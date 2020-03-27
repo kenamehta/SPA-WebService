@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Health Camp SPA</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-fixed-top navbar-toggleable-sm nav_bar_style">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#home" class="navbar-left" id="main-name"> Health Camp</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#demo-page">Demographics</a></li>
+          <li><a href="#vitals-page">Health Vitals</a></li>
+          <li><a href="#reports-page">Reports</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section-style col-12" align="center" id="home">
+    <br><br><br><br><br><br>
+    <h1>WELCOME</h1>
+  </section>
+
+
+
+  <section class="section-style" id="demo-page">
+    <div class="container">
+      <div class="row" id="first">
+        <form class="col-sm-6 form-horizontal" id="first_form">
+          <div class="form-group">
+            <label for="firstname" class="col-sm-3 control-label">First Name:</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="fname" placeholder="Enter your firstname">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastname" class="col-sm-3 control-label">Last Name:</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="lname" name="lastname" placeholder="Enter your lastname">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="gender" class="col-sm-3 control-label">Gender:</label>
+            <div class="col-sm-5">
+              <select class="custom-select form-control" id="gender">
+                  <option selected>---</option>
+                  <option value="M">Male</option>
+                  <option value="F">Female</option>
+                  <option value="O">Others</option>
+                </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="age" class="col-sm-3 control-label">Age:</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" name="age" id="age" placeholder="Enter your age">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="details" class="col-sm-3 control-label">Notes or other details:</label>
+            <div class="col-sm-5">
+              <textarea name="address" rows="2" cols="50"></textarea>
+            </div>
+          </div>
+
+        </form>
+        <div class="col-sm-6">
+
+          <div class="form-group">
+            <label for="image" class="col-sm-3 control-label">Photo:</label>
+
+            <button class="btn btn-primary" id="capture">Capture</button>
+            <div class="col-sm-12" id="canvas-div">
+              <canvas id="canvas" width=200 height=100></canvas>
+            </div>
+          </div>
+          <div>
+            <video height="200" width="200" id="player" controls autoplay></video>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-5">
+              <button id="demo-save" type="button" class="btn btn-success" onclick="saveLocal1()">Save</button>
+              <button type="reset" class="btn btn-danger" id="reset">Cancel</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section-style" id="vitals-page">
+    <div class="container">
+      <div class="row" id="second">
+        <form class="col-sm-6 form-horizontal" id="second-form" method="POST" action="/">
+          <div class="form-group">
+            <label for="height" class="col-sm-3 control-label">Height:</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="height" placeholder="Enter your height">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="weight" class="col-sm-3 control-label">Weight:</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="weight" placeholder="Enter your weight">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="body-temp" class="col-sm-3 control-label">Body Temperature:</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="temp" placeholder="Enter your body temperature">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pulse" class="col-sm-3 control-label">Pulse Rate:</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="pulse-rate" placeholder="Enter your pulse rate">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bp" class="col-sm-3 control-label">Blood Pressure:</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="bp" placeholder="Enter your BP level">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-10">
+              <button id="vitals-save" type="button" class="btn btn-success" onclick="saveLocal2()">Save</button>
+              <button type="reset" class="btn btn-danger">Cancel</button>
+            </div>
+          </div>
+        </form>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="medications" class="col-sm-3 control-label">Medications:</label>
+
+            <textarea name="medics" id="medics" rows="3"></textarea>
+
+          </div><br>
+          <div class="form-group">
+            <label for="notes" class="col-sm-3 control-label">Notes:</label>
+
+            <textarea name="notes" id="notes" rows="3"></textarea>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section-style" id="reports-page">
+    <div class="container">
+      <div class="row" id="row-three">
+        <h2 class="text-center">Patient Details</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Photo</th>
+              <th>Medications</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="details-table">
+            <% patients.map(function(patient){ %>
+              <tr>
+                <td>
+                  <%= patient.name %>
+                </td>
+                <td>
+                  <%= patient.age %>
+                </td>
+                <td>
+                  <%= patient.gender %>
+                </td>
+                <td><img src=<%=patient.image %> style="width:30px; height:50px"></td>
+                <td>
+                  <%= patient.medics %>
+                </td>
+                <td>
+                  <%= patient.notes %>
+                </td>
+              </tr>
+
+              <%  }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <script>
+    const player = document.getElementById("player");
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+    const captureButton = document.getElementById("capture");
+
+    const constraints = {
+      video: true
+    };
+
+    captureButton.addEventListener("click", () => {
+      // Draw the video frame to the canvas.
+      context.drawImage(player, 0, 0, canvas.width, canvas.height);
+      var imageDataURL = canvas.toDataURL("image/png");
+      localStorage.setItem("photo", imageDataURL);
+      player.srcObject.getVideoTracks().forEach(track => track.stop());
+    });
+
+    // Attach the video stream to the video element and autoplay.
+    navigator.mediaDevices.getUserMedia(constraints).then(stream => {
+      player.srcObject = stream;
+    });
+  </script>
+  <script src="./js/storeWebSQL.js"></script>
+</body>
+
+</html>
